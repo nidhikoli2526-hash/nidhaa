@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidhi Koli - Interactive Resume</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- For icons -->
+</head>
+<body>
+    <nav id="navbar">
+        <button class="nav-btn" data-target="#about">About</button>
+        <button class="nav-btn" data-target="#education">Education</button>
+        <button class="nav-btn" data-target="#skills">Skills</button>
+        <button class="nav-btn" data-target="#experience">Experience</button>
+        <button class="nav-btn" data-target="#projects">Projects</button>
+        <button class="nav-btn" data-target="#certifications">Certifications</button>
+    </nav>
+
+    <header>
+        <div class="profile-pic">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <h1>Nidhi Koli</h1>
+        <p>Electronics and Telecommunication Engineer | Innovator in Technology</p>
+        <div class="contact-info">
+            <i class="fas fa-envelope"></i> nidhi.koli@example.com |
+            <i class="fas fa-phone"></i> +91-1234567890 |
+            <i class="fab fa-linkedin"></i> linkedin.com/in/nidhikoli
+        </div>
+        <div class="header-buttons">
+            <button id="download-btn" class="btn-primary"><i class="fas fa-download"></i> Download Resume</button>
+            <button id="contact-btn" class="btn-secondary"><i class="fas fa-envelope"></i> Contact Me</button>
+        </div>
+    </header>
+    
+    <section id="about">
+        <h2><i class="fas fa-user"></i> About Me</h2>
+        <p>Dedicated electronics engineer with a strong foundation in computer engineering and telecommunication systems. Eager to apply technical skills in innovative projects and contribute to cutting-edge technology solutions.</p>
+        <button class="toggle-btn" data-toggle="#about-content">Read More</button>
+        <div id="about-content" class="hidden">
+            <p>With a passion for technology, I have worked on various projects involving IoT, embedded systems, and network simulations. I thrive in collaborative environments and am always looking to learn new technologies.</p>
+        </div>
+    </section>
+    
+    <section id="education">
+        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="education-item">
+            <h3>Bachelor of Engineering (BE) in Electronics and Telecommunication</h3>
+            <p><strong>Institution:</strong> [University Name], [City, State] | <strong>Year:</strong> 2018-2022 | <strong>Grade:</strong> First Class</p>
+            <p>Focused on advanced topics like signal processing, network systems, and embedded electronics.</p>
+        </div>
+        <div class="education-item">
+            <h3>Diploma in Electronics and Computer Engineering</h3>
+            <p><strong>Institution:</strong> [Polytechnic College Name], [City, State] | <strong>Year:</strong> 2015-2018 | <strong>Grade:</strong> Distinction</p>
+            <p>Covered fundamentals of electronics, programming, and computer hardware.</p>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <h2><i class="fas fa-tools"></i> Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>Circuit Design & Analysis</li>
+                    <li>Microcontroller Programming (Arduino, Raspberry Pi)</li>
+                    <li>Programming Languages: C, C++, Python, Java</li>
+                    <li>Telecommunication Protocols (TCP/IP, GSM)</li>
+                    <li>Tools: MATLAB, Proteus, AutoCAD</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Problem-Solving</li>
+                    <li>Team Collaboration</li>
+                    <li>Project Management</li>
+                    <li>Communication</li>
+                    <li>Adaptability</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <h2><i class="fas fa-briefcase"></i> Experience</h2>
+        <div class="experience-item">
+            <h3>Intern - Electronics Design</h3>
+            <p><strong>Company:</strong> [Company Name] | <strong>Duration:</strong> June 2021 - August 2021</p>
+            <p>Assisted in designing circuit boards and testing telecommunication devices. Gained hands-on experience with simulation tools.</p>
+        </div>
+        <div class="experience-item">
+            <h3>Project Assistant - Computer Engineering</h3>
+            <p><strong>Organization:</strong> [Organization Name] | <strong>Duration:</strong> January 2020 - May 2020</p>
+            <p>Worked on software development projects, including coding in C++ and Python for embedded systems.</p>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+        <div class="project-item">
+            <h3>IoT-Based Home Automation System</h3>
+            <p>Developed a system using sensors and microcontrollers for remote control of home appliances. Technologies: Arduino, Wi-Fi module.</p>
+        </div>
+        <div class="project-item">
+            <h3>Wireless Communication Network Simulator</h3>
+            <p>Simulated telecommunication networks using MATLAB to analyze signal strength and interference.</p>
+        </div>
+    </section>
+    
+    <section id="certifications">
+        <h2><i class="fas fa-certificate"></i> Certifications</h2>
+        <ul>
+            <li>Certified in Embedded Systems (Coursera, 2022)</li>
+            <li>Python Programming Certification (Udemy, 2021)</li>
+            <li>Telecommunication Fundamentals (Online Course, 2020)</li>
+        </ul>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Nidhi Koli. All rights reserved. | Designed with <i class="fas fa-heart"></i></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
