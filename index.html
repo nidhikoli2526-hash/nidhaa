@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Navbar with Login & Registration</title>
+    <title>Responsive Navbar with Dropdown</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap 5 CSS -->
@@ -10,12 +10,12 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- NAVIGATION BAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">MyWebsite</a>
 
-        <!-- Mobile Toggle -->
+        <!-- Toggle Button (Mobile) -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -24,95 +24,74 @@
         <!-- Navbar Content -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
+
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Home</a>
                 </li>
+
+                <!-- DROPDOWN MENU -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-bs-toggle="dropdown">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Web Design</a></li>
+                        <li><a class="dropdown-item" href="#">Development</a></li>
+                        <li><a class="dropdown-item" href="#">SEO</a></li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
             </ul>
 
-            <!-- Login & Register Buttons -->
-            <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <!-- Right Side Button -->
+            <button class="btn btn-outline-light">
                 Login
-            </button>
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal">
-                Register
             </button>
         </div>
     </div>
 </nav>
 
-<!-- LOGIN MODAL -->
-<div class="modal fade" id="loginModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+<!-- PAGE CONTENT -->
+<div class="container mt-5">
+    <h1 class="text-center">Welcome to MyWebsite</h1>
+    <p class="text-center">
+        This is a responsive web page using Bootstrap navigation bar with dropdown menu.
+    </p>
 
-            <div class="modal-header">
-                <h5 class="modal-title">Login</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Service One</h5>
+                    <p class="card-text">Responsive web design using Bootstrap.</p>
+                </div>
             </div>
-
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label class="form-label">Username</label>
-                        <input type="text" class="form-control" placeholder="Enter username" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Password</label>
-                        <input type="password" class="form-control" placeholder="Enter password" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-100">
-                        Login
-                    </button>
-                </form>
-            </div>
-
         </div>
-    </div>
-</div>
 
-<!-- REGISTRATION MODAL -->
-<div class="modal fade" id="registerModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title">Register</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Service Two</h5>
+                    <p class="card-text">Fast and modern UI components.</p>
+                </div>
             </div>
+        </div>
 
-            <div class="modal-body">
-                <form>
-                    <div class="mb-4">
-                        <label class="form-label">Full Name</label>
-                        <input type="text" class="form-control" placeholder="Enter full name" required>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="Enter email" required>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label">Username</label>
-                        <input type="text" class="form-control" placeholder="Choose username" required>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label">Password</label>
-                        <input type="password" class="form-control" placeholder="Create password" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-success w-100">
-                        Register
-                    </button>
-                </form>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Service Three</h5>
+                    <p class="card-text">Mobile-first responsive layout.</p>
+                </div>
             </div>
-
         </div>
     </div>
 </div>
