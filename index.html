@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Responsive Webpage</title>
+  <title>Login & Registration Example</title>
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -13,42 +13,32 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">MyWebsite</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
-        </li>
-
-        <!-- Dropdown -->
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
-             data-bs-toggle="dropdown" aria-expanded="false">
-            Services
-          </a>
+             data-bs-toggle="dropdown" aria-expanded="false">Services</a>
           <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
             <li><a class="dropdown-item" href="#">Web Design</a></li>
             <li><a class="dropdown-item" href="#">Development</a></li>
             <li><a class="dropdown-item" href="#">SEO</a></li>
           </ul>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
       </ul>
 
-      <!-- Right-side button -->
-      <button class="btn btn-outline-light">Login</button>
+      <!-- Login & Register Buttons -->
+      <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
     </div>
   </div>
 </nav>
@@ -56,39 +46,62 @@
 <!-- PAGE CONTENT -->
 <div class="container mt-5">
   <h1 class="text-center">Welcome to MyWebsite</h1>
-  <p class="text-center">This is a responsive webpage built with Bootstrap 5.</p>
+  <p class="text-center">This page includes login and registration modals using Bootstrap.</p>
+</div>
 
-  <div class="row mt-4">
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="Service One">
-        <div class="card-body">
-          <h5 class="card-title">Service One</h5>
-          <p class="card-text">Responsive web design using Bootstrap.</p>
-          <a href="#" class="btn btn-primary">Learn More</a>
-        </div>
+<!-- LOGIN MODAL -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter email">
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="Enter password">
+          </div>
+          <button type="submit" class="btn btn-dark w-100">Login</button>
+        </form>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="Service Two">
-        <div class="card-body">
-          <h5 class="card-title">Service Two</h5>
-          <p class="card-text">Fast and modern UI components.</p>
-          <a href="#" class="btn btn-primary">Learn More</a>
-        </div>
+<!-- REGISTRATION MODAL -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="registerModalLabel">Register</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="Service Three">
-        <div class="card-body">
-          <h5 class="card-title">Service Three</h5>
-          <p class="card-text">Mobile-first responsive layout.</p>
-          <a href="#" class="btn btn-primary">Learn More</a>
-        </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="registerName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="registerName" placeholder="Enter full name">
+          </div>
+          <div class="mb-3">
+            <label for="registerEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="registerEmail" placeholder="Enter email">
+          </div>
+          <div class="mb-3">
+            <label for="registerPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="registerPassword" placeholder="Enter password">
+          </div>
+          <div class="mb-3">
+            <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Confirm password">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
       </div>
     </div>
   </div>
@@ -103,3 +116,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
