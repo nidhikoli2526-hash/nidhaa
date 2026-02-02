@@ -10,19 +10,19 @@
 </head>
 <body>
 
-<!-- NAVIGATION BAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">MyWebsite</a>
 
-        <!-- Mobile Toggle -->
+        <!-- Toggle button (Mobile) -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarContent">
+                data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Navbar Items -->
-        <div class="collapse navbar-collapse" id="navbarContent">
+        <!-- Navbar content -->
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Home</a>
@@ -30,23 +30,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
             </ul>
 
             <!-- Login Button -->
-            <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#loginModal">
                 Login
             </button>
         </div>
     </div>
 </nav>
 
-<!-- LOGIN BOX (MODAL) -->
+<!-- LOGIN MODAL -->
 <div class="modal fade" id="loginModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title">User Login</h5>
+                <h5 class="modal-title">Login</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
