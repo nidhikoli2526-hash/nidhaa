@@ -1,104 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Responsive Navbar with Dropdown</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Webpage</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- NAVIGATION BAR -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">MyWebsite</a>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MyWebsite</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <!-- Toggle Button (Mobile) -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
 
-        <!-- Navbar Content -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+            <li><a class="dropdown-item" href="#">Web Design</a></li>
+            <li><a class="dropdown-item" href="#">Development</a></li>
+            <li><a class="dropdown-item" href="#">SEO</a></li>
+          </ul>
+        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
-                </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
 
-                <!-- DROPDOWN MENU -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                       data-bs-toggle="dropdown">
-                        Services
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Web Design</a></li>
-                        <li><a class="dropdown-item" href="#">Development</a></li>
-                        <li><a class="dropdown-item" href="#">SEO</a></li>
-                    </ul>
-                </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-
-            <!-- Right Side Button -->
-            <button class="btn btn-outline-light">
-                Login
-            </button>
-        </div>
+      <!-- Right-side button -->
+      <button class="btn btn-outline-light">Login</button>
     </div>
+  </div>
 </nav>
 
 <!-- PAGE CONTENT -->
 <div class="container mt-5">
-    <h1 class="text-center">Welcome to MyWebsite</h1>
-    <p class="text-center">
-        This is a responsive web page using Bootstrap navigation bar with dropdown menu.
-    </p>
+  <h1 class="text-center">Welcome to MyWebsite</h1>
+  <p class="text-center">This is a responsive webpage built with Bootstrap 5.</p>
 
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Service One</h5>
-                    <p class="card-text">Responsive web design using Bootstrap.</p>
-                </div>
-            </div>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="Service One">
+        <div class="card-body">
+          <h5 class="card-title">Service One</h5>
+          <p class="card-text">Responsive web design using Bootstrap.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
         </div>
-
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Service Two</h5>
-                    <p class="card-text">Fast and modern UI components.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Service Three</h5>
-                    <p class="card-text">Mobile-first responsive layout.</p>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="Service Two">
+        <div class="card-body">
+          <h5 class="card-title">Service Two</h5>
+          <p class="card-text">Fast and modern UI components.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="Service Three">
+        <div class="card-body">
+          <h5 class="card-title">Service Three</h5>
+          <p class="card-text">Mobile-first responsive layout.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-light text-center py-3 mt-5">
+  <p>&copy; 2026 MyWebsite. All rights reserved.</p>
+</footer>
 
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
-
