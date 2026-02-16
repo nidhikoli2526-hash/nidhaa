@@ -9,41 +9,60 @@
 
 <form onsubmit="return validateForm()">
   
-  Username: 
+  Username:
   <input type="text" id="username"><br><br>
-  
-  Password: 
-  <input type="password" id="password"><br><br>
-  
-  <input type="submit" value="Submit">
-  
-</form>
 
-<p id="message" style="color:red;"></p>
+  Password:
+  <input type="password" id="password"><br><br>
+
+  Email:
+  <input type="text" id="email"><br><br>
+
+  Contact No:
+  <input type="text" id="contact"><br><br>
+
+  <input type="submit" value="Submit">
+
+</form>
 
 <script>
 function validateForm() {
+
   var user = document.getElementById("username").value;
   var pass = document.getElementById("password").value;
+  var email = document.getElementById("email").value;
+  var contact = document.getElementById("contact").value;
 
-  // Username validation
+  // Username check
   if (user == "") {
-    document.getElementById("message").innerHTML = "Username cannot be empty";
+    alert("Username cannot be empty");
     return false;
   }
 
-  // Password validation
+  // Password check
   if (pass.length < 6) {
-    document.getElementById("message").innerHTML = "Password must be at least 6 characters";
+    alert("Password must be at least 6 characters");
     return false;
   }
 
-  // If everything is correct
-  document.getElementById("message").style.color = "green";
-  document.getElementById("message").innerHTML = "Form submitted successfully!";
+  // Email check
+  if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+    alert("Enter a valid email");
+    return false;
+  }
+
+  // Contact number check
+  if (contact.length != 10 || isNaN(contact)) {
+    alert("Enter a valid 10-digit contact number");
+    return false;
+  }
+
+  // If all valid
+  alert("Form submitted successfully!");
   return false; // prevent actual submission for demo
 }
 </script>
 
 </body>
 </html>
+
