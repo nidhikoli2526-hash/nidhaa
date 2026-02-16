@@ -1,32 +1,32 @@
-let a = 10;
-let b = 5;
-let operator = "+";   // Change this to +, -, *, /, %
+let num1 = 15;
+let num2 = 3;
+let operator = "*";   // Change operator: +  -  *  /  %
 
 let result;
 
 switch (operator) {
   case "+":
-    result = a + b;
+    result = num1 + num2;
     break;
 
   case "-":
-    result = a - b;
+    result = num1 - num2;
     break;
 
   case "*":
-    result = a * b;
+    result = num1 * num2;
     break;
 
   case "/":
-    result = a / b;
+    result = num1 / num2;
     break;
 
   case "%":
-    result = a % b;
+    result = num1 % num2;
     break;
 
   default:
-    result = "Invalid Operator";
+    result = "Invalid operator";
 }
 
 console.log("Result:", result);
