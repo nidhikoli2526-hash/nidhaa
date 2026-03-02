@@ -1,29 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Dynamic Page</title>
+    <title>AJAX Search Suggestion</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        #suggestions {
+            border: 1px solid #ccc;
+            max-width: 200px;
+            display: none;
+        }
+
+        .item {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .item:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
 
-    <h2 id="title">Hello, World!</h2>
+    <h2>Search Box</h2>
+
+    <input type="text" id="search" placeholder="Type to search..." autocomplete="off">
     
-    <p>Button clicked: <span id="count">0</span> times</p>
-    
-    <button id="myButton">Click Me</button>
+    <div id="suggestions"></div>
 
     <script>
-        // Get elements from DOM
-        const button = document.getElementById("myButton");
-        const title = document.getElementById("title");
-        const countSpan = document.getElementById("count");
+        $(document).ready(function() {
 
-        let count = 0;
+            $("#search").keyup(function() {
+                var query = $(this).val();
 
-        // Add click event
-        button.addEventListener("click", function() {
-            count++;
-            countSpan.textContent = count; // Update counter
-            title.textContent = "Button was clicked!"; // Update text
+                if (query.length > 0) {
+                    $.ajax({
+                        url: "search.php",
+                        method: "POST",
+                        data: { search: query },
+                        success: function(data) {
+                            $("#suggestions").html(data);
+                            $("#suggestions").show();
+                        }
+                    });
+                } else {
+                    $("#suggestions").hide();
+                }
+            });
+
+            // Click suggestion
+            $(document).on("click", ".item", function() {
+                $("#search").val($(this).text());
+                $("#suggestions").hide();
+            });
+
         });
     </script>
 
