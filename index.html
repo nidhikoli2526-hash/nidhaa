@@ -1,76 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>User Form Validation</title>
-
-  <style>
-    body {
-      background-color: purple;
-      font-family: Arial, sans-serif;
-    }
-  </style>
-
+    <title>Simple Dynamic Page</title>
 </head>
 <body>
 
-<h3>User Registration Form</h3>
+    <h2 id="title">Hello, World!</h2>
+    
+    <p>Button clicked: <span id="count">0</span> times</p>
+    
+    <button id="myButton">Click Me</button>
 
-<form onsubmit="return validateForm()">
-  
-  Username:
-  <input type="text" id="username"><br><br>
+    <script>
+        // Get elements from DOM
+        const button = document.getElementById("myButton");
+        const title = document.getElementById("title");
+        const countSpan = document.getElementById("count");
 
-  Password:
-  <input type="password" id="password"><br><br>
+        let count = 0;
 
-  Email:
-  <input type="text" id="email"><br><br>
-
-  Contact No:
-  <input type="text" id="contact"><br><br>
-
-  <input type="submit" value="Submit">
-
-</form>
-
-<script>
-function validateForm() {
-
-  var user = document.getElementById("username").value;
-  var pass = document.getElementById("password").value;
-  var email = document.getElementById("email").value;
-  var contact = document.getElementById("contact").value;
-
-  // Username check
-  if (user == "") {
-    alert("Username cannot be empty");
-    return false;
-  }
-
-  // Password check
-  if (pass.length < 6) {
-    alert("Password must be at least 6 characters");
-    return false;
-  }
-
-  // Email check
-  if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
-    alert("Enter a valid email");
-    return false;
-  }
-
-  // Contact number check
-  if (contact.length != 10 || isNaN(contact)) {
-    alert("Enter a valid 10-digit contact number");
-    return false;
-  }
-
-  // If all valid
-  alert("Form submitted successfully!");
-  return false; // prevent actual submission for demo
-}
-</script>
+        // Add click event
+        button.addEventListener("click", function() {
+            count++;
+            countSpan.textContent = count; // Update counter
+            title.textContent = "Button was clicked!"; // Update text
+        });
+    </script>
 
 </body>
 </html>
-
