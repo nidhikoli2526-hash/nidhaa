@@ -1,65 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AJAX Search Suggestion</title>
-
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <style>
-        #suggestions {
-            border: 1px solid #ccc;
-            max-width: 200px;
-            display: none;
-        }
-
-        .item {
-            padding: 5px;
-            cursor: pointer;
-        }
-
-        .item:hover {
-            background-color: #f0f0f0;
-        }
-    </style>
+    <title>Registration Form</title>
 </head>
 <body>
 
-    <h2>Search Box</h2>
+<h2>Registration Form</h2>
 
-    <input type="text" id="search" placeholder="Type to search..." autocomplete="off">
+<form action="#" method="post">
     
-    <div id="suggestions"></div>
+    <label>Full Name:</label><br>
+    <input type="text" name="fullname" required><br><br>
 
-    <script>
-        $(document).ready(function() {
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
 
-            $("#search").keyup(function() {
-                var query = $(this).val();
+    <label>Password:</label><br>
+    <input type="password" name="password" required><br><br>
 
-                if (query.length > 0) {
-                    $.ajax({
-                        url: "search.php",
-                        method: "POST",
-                        data: { search: query },
-                        success: function(data) {
-                            $("#suggestions").html(data);
-                            $("#suggestions").show();
-                        }
-                    });
-                } else {
-                    $("#suggestions").hide();
-                }
-            });
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <input type="radio" name="gender" value="Other"> Other
+    <br><br>
 
-            // Click suggestion
-            $(document).on("click", ".item", function() {
-                $("#search").val($(this).text());
-                $("#suggestions").hide();
-            });
+    <label>Date of Birth:</label><br>
+    <input type="date" name="dob"><br><br>
 
-        });
-    </script>
+    <label>Phone Number:</label><br>
+    <input type="tel" name="phone"><br><br>
+
+    <input type="submit" value="Register">
+    <input type="reset" value="Clear">
+
+</form>
 
 </body>
 </html>
