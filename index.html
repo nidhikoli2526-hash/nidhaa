@@ -1,64 +1,45 @@
 <?php
 session_start();
 
-// fixed user id and password
-$correct_user = "admin";
-$correct_pass = "12345";
+$user = "admin";
+$pass = "1234";
 
-// logout
-if(isset($_GET['logout'])){
-    session_destroy();
-    header("Location: login.php");
-    exit();
+if(isset($_POST['login'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if($username == $user && $password == $pass){
+        $_SESSION['user'] = $username;
+    } else {
+        echo "Invalid Username or Password<br>";
+    }
 }
 
-// login process
-if(isset($_POST['login'])){
-    $user = $_POST['userid'];
-    $pass = $_POST['password'];
-
-    if($user == $correct_user && $pass == $correct_pass){
-        $_SESSION['user'] = $user;
-    } else {
-        $error = "Invalid User ID or Password";
-    }
+if(isset($_GET['logout'])){
+    session_destroy();
+    header("Location: index.php");
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>PHP Login</title>
-</head>
-<body>
-
 <?php
-// if user logged in
 if(isset($_SESSION['user'])){
 ?>
 
 <h2>Welcome <?php echo $_SESSION['user']; ?></h2>
-<p>You are successfully logged in.</p>
 <a href="?logout=true">Logout</a>
 
 <?php
-}else{
+} else {
 ?>
 
-<h2>Login Form</h2>
-
-<?php
-if(isset($error)){
-    echo "<p>$error</p>";
-}
-?>
+<h2>Login</h2>
 
 <form method="post">
-<label>User ID:</label><br>
-<input type="text" name="userid" required><br><br>
+Username:<br>
+<input type="text" name="username"><br><br>
 
-<label>Password:</label><br>
-<input type="password" name="password" required><br><br>
+Password:<br>
+<input type="password" name="password"><br><br>
 
 <input type="submit" name="login" value="Login">
 </form>
@@ -66,6 +47,3 @@ if(isset($error)){
 <?php
 }
 ?>
-
-</body>
-</html>
