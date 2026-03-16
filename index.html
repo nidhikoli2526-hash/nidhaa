@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// simple user id and password
-$userid = "admin";
-$password = "12345";
+// fixed user id and password
+$correct_user = "admin";
+$correct_pass = "12345";
 
 // logout
 if(isset($_GET['logout'])){
@@ -12,39 +12,54 @@ if(isset($_GET['logout'])){
     exit();
 }
 
-// login check
+// login process
 if(isset($_POST['login'])){
-    if($_POST['userid'] == $userid && $_POST['password'] == $password){
-        $_SESSION['user'] = $userid;
+    $user = $_POST['userid'];
+    $pass = $_POST['password'];
+
+    if($user == $correct_user && $pass == $correct_pass){
+        $_SESSION['user'] = $user;
     } else {
-        $error = "Invalid Login";
+        $error = "Invalid User ID or Password";
     }
 }
 ?>
 
 <!DOCTYPE html>
 <html>
+<head>
+<title>PHP Login</title>
+</head>
 <body>
 
 <?php
+// if user logged in
 if(isset($_SESSION['user'])){
-    echo "Welcome " . $_SESSION['user'];
-    echo "<br><br>";
-    echo "<a href='?logout=true'>Logout</a>";
+?>
+
+<h2>Welcome <?php echo $_SESSION['user']; ?></h2>
+<p>You are successfully logged in.</p>
+<a href="?logout=true">Logout</a>
+
+<?php
 }else{
 ?>
 
-<h2>Login</h2>
+<h2>Login Form</h2>
 
 <?php
 if(isset($error)){
-    echo $error . "<br><br>";
+    echo "<p>$error</p>";
 }
 ?>
 
 <form method="post">
-User ID: <input type="text" name="userid"><br><br>
-Password: <input type="password" name="password"><br><br>
+<label>User ID:</label><br>
+<input type="text" name="userid" required><br><br>
+
+<label>Password:</label><br>
+<input type="password" name="password" required><br><br>
+
 <input type="submit" name="login" value="Login">
 </form>
 
