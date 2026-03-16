@@ -1,50 +1,76 @@
 <?php
 session_start();
 
+/* USER DATA (example user) */
 $valid_user = "admin";
-$valid_pass = "12345";
 
+/* hashed password for: 12345 */
+$valid_hash = "$2y$10$wHc9kU4uFJYk6y9q7uP8TeqE6G4eZ7sJt7z6t0W4k7sP9bL6yH9O2";
+
+/* LOGIN PROCESS */
 if(isset($_POST['login'])){
-    $user = $_POST['userid'];
-    $pass = $_POST['password'];
 
-    if($user == $valid_user && $pass == $valid_pass){
-        $_SESSION['user'] = $user;
-    } else {
-        $error = "Invalid User ID or Password";
+    $user = trim($_POST['userid']);
+    $pass = trim($_POST['password']);
+
+    if($user === $valid_user && password_verify($pass,$valid_hash)){
+        $_SESSION['user']=$user;
+        header("Location: ".$_SERVER['PHP_SELF']);
+        exit();
+    }else{
+        $error="Login Failed";
     }
 }
 
+/* LOGOUT */
 if(isset($_GET['logout'])){
     session_destroy();
-    header("Location: login.php");
+    header("Location: ".$_SERVER['PHP_SELF']);
     exit();
 }
 ?>
 
-<?php
-if(isset($_SESSION['user'])){
-    echo "Welcome " . $_SESSION['user'];
-    echo "<br><br>";
-    echo "<a href='?logout=true'>Logout</a>";
-} else {
-?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>PHP Login</title>
+</head>
+
+<body>
+
+<?php if(isset($_SESSION['user'])){ ?>
+
+<h3>Welcome <?php echo $_SESSION['user']; ?></h3>
+
+<p>You are logged in.</p>
+
+<a href="?logout=true">Logout</a>
+
+<?php } else { ?>
+
+<h3>Login</h3>
 
 <?php
 if(isset($error)){
-    echo $error;
-    echo "<br><br>";
+echo $error."<br><br>";
 }
 ?>
 
 <form method="post">
-User ID:<br>
-<input type="text" name="userid"><br><br>
 
-Password:<br>
-<input type="password" name="password"><br><br>
+User ID<br>
+<input type="text" name="userid" required>
+<br><br>
+
+Password<br>
+<input type="password" name="password" required>
+<br><br>
 
 <input type="submit" name="login" value="Login">
+
 </form>
 
 <?php } ?>
+
+</body>
+</html>
