@@ -1,49 +1,26 @@
-<?php
-session_start();
+import React from "react";
 
-$user = "admin";
-$pass = "1234";
-
-if(isset($_POST['login'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    if($username == $user && $password == $pass){
-        $_SESSION['user'] = $username;
-    } else {
-        echo "Invalid Username or Password<br>";
-    }
+function Header({ title }) {
+  return <h1>{title}</h1>;
 }
 
-if(isset($_GET['logout'])){
-    session_destroy();
-    header("Location: index.php");
+function UserCard({ name, age }) {
+  return (
+    <div>
+      <h3>{name}</h3>
+      <p>Age: {age}</p>
+    </div>
+  );
 }
-?>
 
-<?php
-if(isset($_SESSION['user'])){
-?>
-
-<h2>Welcome <?php echo $_SESSION['user']; ?></h2>
-<a href="?logout=true">Logout</a>
-
-<?php
-} else {
-?>
-
-<h2>Login</h2>
-
-<form method="post">
-Username:<br>
-<input type="text" name="username"><br><br>
-
-Password:<br>
-<input type="password" name="password"><br><br>
-
-<input type="submit" name="login" value="Login">
-</form>
-
-<?php
+function App() {
+  return (
+    <div>
+      <Header title="My React App" />
+      <UserCard name="Abhay" age={21} />
+      <UserCard name="Rahul" age={22} />
+    </div>
+  );
 }
-?>
+
+export default App;
